@@ -1911,6 +1911,11 @@ Parser::DeclGroupPtrTy Parser::ParseDeclaration(DeclaratorContext Context,
     SingleDecl = ParseHLSLBuffer(DeclEnd);
     break;
   case tok::kw_namespace:
+    if (this->getLangOpts().TRS_C99)
+    {
+      printf("Namespace detected");
+      return TRS_ParseNamespace(Context, DeclEnd);
+    }
     ProhibitAttributes(DeclAttrs);
     ProhibitAttributes(DeclSpecAttrs);
     return ParseNamespace(Context, DeclEnd);

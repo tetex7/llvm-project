@@ -3160,6 +3160,10 @@ private:
                                 SourceLocation &DeclEnd,
                                 SourceLocation InlineLoc = SourceLocation());
 
+  DeclGroupPtrTy TRS_ParseNamespace(DeclaratorContext Context,
+                                              SourceLocation &DeclEnd,
+                                              SourceLocation InlineLoc = SourceLocation());
+
   struct InnerNamespaceInfo {
     SourceLocation NamespaceLoc;
     SourceLocation InlineLoc;

@@ -57,6 +57,12 @@ LANGSTANDARD_ALIAS(c99, "iso9899:1999")
 LANGSTANDARD_ALIAS_DEPR(c99, "c9x")
 LANGSTANDARD_ALIAS_DEPR(c99, "iso9899:199x")
 
+
+// C99-ish modes
+LANGSTANDARD(trs_c99, "trs-c99",
+             C, "ISO C 1999(TRS Superset)",
+             LineComment | C99 | Digraphs | HexFloat)
+
 LANGSTANDARD(gnu99, "gnu99",
              C, "ISO C 1999 with GNU extensions",
              LineComment | C99 | Digraphs | GNUMode | HexFloat)

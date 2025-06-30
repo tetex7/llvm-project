@@ -22,6 +22,7 @@
 #include "support/ThreadsafeFS.h"
 #include "support/Trace.h"
 #include "clang/Basic/LangOptions.h"
+#include "clang/Basic/LangStandard.h"
 #include "clang/Frontend/CompilerInvocation.h"
 #include "clang/Frontend/FrontendActions.h"
 #include "clang/Lex/PreprocessorOptions.h"
@@ -62,6 +63,8 @@ LangStandard::Kind standardFromOpts(const LangOptions &LO) {
       return LangStandard::lang_cxx11;
     return LangStandard::lang_cxx98;
   }
+  if (LO.TRS_C99)
+    return LangStandard::lang_trs_c99;
   if (LO.C23)
     return LangStandard::lang_c23;
   // C17 has no new features, so treat {C11,C17} as C17.

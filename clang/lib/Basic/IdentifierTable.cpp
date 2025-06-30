@@ -15,6 +15,7 @@
 #include "clang/Basic/CharInfo.h"
 #include "clang/Basic/DiagnosticLex.h"
 #include "clang/Basic/LangOptions.h"
+#include "clang/Basic/LangStandard.h"
 #include "clang/Basic/OperatorKinds.h"
 #include "clang/Basic/Specifiers.h"
 #include "clang/Basic/TargetBuiltins.h"
@@ -348,6 +349,11 @@ void IdentifierTable::AddKeywords(const LangOptions &LangOpts) {
 
   if (LangOpts.IEEE128)
     AddKeyword("__ieee128", tok::kw___float128, KEYALL, LangOpts, *this);
+
+  if (LangOpts.TRS_C99)
+  {
+    AddKeyword("namespace", tok::kw_namespace, KEYALL, LangOpts, *this);
+  }
 
   // Add the 'import' contextual keyword.
   get("import").setModulesImport(true);

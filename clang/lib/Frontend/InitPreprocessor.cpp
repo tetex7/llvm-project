@@ -11,6 +11,7 @@
 //===----------------------------------------------------------------------===//
 
 #include "clang/Basic/HLSLRuntime.h"
+#include "clang/Basic/LangStandard.h"
 #include "clang/Basic/MacroBuilder.h"
 #include "clang/Basic/SourceManager.h"
 #include "clang/Basic/SyncScope.h"
@@ -466,6 +467,11 @@ static void InitializeStandardPredefinedMacros(const TargetInfo &TI,
       Builder.defineMacro("__STDC_VERSION__", "201710L");
     else if (LangOpts.C11)
       Builder.defineMacro("__STDC_VERSION__", "201112L");
+    if (LangOpts.TRS_C99)
+    {
+      Builder.defineMacro("__STDC_VERSION__", "199901L");
+      Builder.defineMacro("__TRS_C__", "1");
+    }
     else if (LangOpts.C99)
       Builder.defineMacro("__STDC_VERSION__", "199901L");
     else if (!LangOpts.GNUMode && LangOpts.Digraphs)

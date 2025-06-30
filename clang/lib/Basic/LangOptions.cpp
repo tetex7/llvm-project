@@ -11,6 +11,7 @@
 //===----------------------------------------------------------------------===//
 
 #include "clang/Basic/LangOptions.h"
+#include "clang/Basic/LangStandard.h"
 #include "llvm/ADT/SmallString.h"
 #include "llvm/Support/Path.h"
 
@@ -109,6 +110,7 @@ void LangOptions::setLangDefaults(LangOptions &Opts, Language Lang,
   Opts.LangStd = LangStd;
   Opts.LineComment = Std.hasLineComments();
   Opts.C99 = Std.isC99();
+  Opts.TRS_C99 = LangStd == LangStandard::lang_trs_c99;
   Opts.C11 = Std.isC11();
   Opts.C17 = Std.isC17();
   Opts.C23 = Std.isC23();
