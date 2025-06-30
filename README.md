@@ -1,3 +1,11 @@
+# A fork of the clang compiler Make C my way
+Welcome to the ***TRS-C99*** project A fork of clang/clangd with alterations to implement a new superset of C99  
+If any LLVM mainline developer comes along yes use my code it might not be up to your quality standards  
+This project secondary goal is to give back to mainline
+
+## Why Clang?
+Because with my mediocre knowledge in compilers and how they operate clang seemed the most easier to modify due to its Relatively modern C++ code base
+
 # The LLVM Compiler Infrastructure
 
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/llvm/llvm-project/badge)](https://securityscorecards.dev/viewer/?uri=github.com/llvm/llvm-project)
